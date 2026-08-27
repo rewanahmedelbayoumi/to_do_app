@@ -9,7 +9,7 @@ class AppTheme{
       );
   static ThemeData DarkTheme = ThemeData(
       textTheme: TextTheme(
-      headlineLarge: AppStyles.bold22DarkColor
+      headlineLarge: AppStyles.bold22Dark
   )
   );
 }
