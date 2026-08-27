@@ -8,4 +8,9 @@ class AppStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.whiteColor
   );
+  static TextStyle bold22DarkColor = GoogleFonts.poppins(
+  fontSize: 22,
+  fontWeight: FontWeight.w700,
+  color: AppColors.backgroundDarkColor
+  );
 }

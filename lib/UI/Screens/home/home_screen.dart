@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/Utilities/app_assets.dart';
 
+import '../../../Utilities/app_styles.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -15,8 +17,8 @@ class HomeScreen extends StatelessWidget {
       ),
     ),
   );
+  }
 }
-  
 
 
 
@@ -24,4 +26,3 @@ class HomeScreen extends StatelessWidget {
 //   Widget build(BuildContext context) {
 //     return Image.asset(AppAssets.splashImage);
 //   }
-// }
