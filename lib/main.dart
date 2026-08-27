@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       },
       theme: AppTheme.LightTheme,
       darkTheme: AppTheme.DarkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
     );
   }
 }

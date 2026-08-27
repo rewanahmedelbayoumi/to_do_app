@@ -11,9 +11,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal,
-        title: Text(
-        'Home Screen',
-        style: AppStyles.bold22White,
+        title: Text('Home Screen',
+        style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+          color: Colors.orange
+        )
       ),
     ),
   );
