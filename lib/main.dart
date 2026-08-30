@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/Utilities/app_routes.dart';
 import 'package:to_do/Utilities/app_theme.dart';
+import 'package:to_do/l10n/app_localization.dart';
 import 'UI/Screens/home/home_screen.dart';
 
 void main() {
@@ -20,7 +21,10 @@ class MyApp extends StatelessWidget {
       },
       theme: AppTheme.LightTheme,
       darkTheme: AppTheme.DarkTheme,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
+      locale: Locale(('en')),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }
