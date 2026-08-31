@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do/Utilities/app_routes.dart';
 import 'package:to_do/Utilities/app_theme.dart';
 import 'package:to_do/l10n/app_localization.dart';
+import 'package:to_do/providers/app_language_provider.dart';
 import 'UI/Screens/home/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => AppLanguageProvider(),
+        child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +17,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var languageProvider = Provider.of<AppLanguageProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.homeRouteName,
@@ -22,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.LightTheme,
       darkTheme: AppTheme.DarkTheme,
       themeMode: ThemeMode.light,
-      locale: Locale(('en')),
+      locale: Locale((languageProvider.appLanguage)),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
     );
