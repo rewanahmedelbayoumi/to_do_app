@@ -24,7 +24,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get arabic => 'العربية';
 
   @override
-  String get mode => 'المظهر';
+  String get theme => 'المظهر';
 
   @override
   String get dark => 'ليلي';
