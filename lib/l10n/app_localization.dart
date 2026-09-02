@@ -132,7 +132,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Theme'**
-  String get theme;
+  String get mode;
 
   /// No description provided for @dark.
   ///
