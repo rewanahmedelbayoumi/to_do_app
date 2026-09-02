@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:to_do/l10n/app_localization.dart';
 import 'package:to_do/Utilities/app_assets.dart';
 import 'package:to_do/Utilities/app_colors.dart';
 import 'package:to_do/l10n/app_localization.dart';
-
 import '../../../Utilities/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +10,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height=MediaQuery.of(context).size.height;
+    var width=MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -35,11 +37,11 @@ class HomeScreen extends StatelessWidget {
     );
   }
   BottomNavigationBarItem buildBottomNavBarItem(
-  {required IconData? icon, required String label}
+      {required IconData? icon, required String label}
       ){
-      return BottomNavigationBarItem(
+    return BottomNavigationBarItem(
         icon: Icon(icon),
         label: label
-      );
+    );
   }
 }

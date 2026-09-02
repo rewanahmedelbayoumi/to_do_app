@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:to_do/Utilities/app_routes.dart';
-import 'package:to_do/Utilities/app_theme.dart';
-import 'package:to_do/l10n/app_localization.dart';
-import 'package:to_do/providers/app_language_provider.dart';
+import 'Utilities/app_theme.dart';
+import 'l10n/app_localization.dart';
+import 'UI/providers/app_language_provider.dart';
 import 'UI/Screens/home/home_screen.dart';
+import 'Utilities/app_routes.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
       create: (context) => AppLanguageProvider(),
-        child: const MyApp()));
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

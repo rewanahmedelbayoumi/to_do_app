@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:to_do/Utilities/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:to_do/Utilities/app_colors.dart';
 
 class AppStyles {
   static TextStyle regular14Primary = GoogleFonts.poppins(
@@ -13,6 +13,12 @@ class AppStyles {
       fontWeight: FontWeight.w400,
       color: AppColors.whiteColor
   );
+  static TextStyle bold14White = GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+      color: AppColors.whiteColor
+  );
+
   static TextStyle bold15Primary = GoogleFonts.poppins(
       fontSize: 15,
       fontWeight: FontWeight.w700,
