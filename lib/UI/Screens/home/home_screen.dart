@@ -69,23 +69,27 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Are you sure?'),
-          content: const Text(
-            'Do you want to delete this task?',
+          title: Text(
+            AppLocalizations.of(context)!.are_you_sure,
+          ),
+          content: Text(
+            AppLocalizations.of(context)!.delete_task_question,
           ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.pop(context, false);
               },
-              child: const Text('No'),
+              child: Text(
+                AppLocalizations.of(context)!.no,
+              ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.pop(context, true);
               },
               child: Text(
-                'Yes',
+                AppLocalizations.of(context)!.yes,
                 style: TextStyle(
                   color: AppColors.redColor,
                 ),
@@ -100,11 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   String formatTime(TimeOfDay time) {
-    final hour = time.hourOfPeriod == 0 ? 12 : time.hourOfPeriod;
-    final minute = time.minute.toString().padLeft(2, '0');
-    final period = time.period == DayPeriod.am ? 'AM' : 'PM';
-
-    return '$hour:$minute $period';
+    return time.format(context);
   }
 
   Future<void> selectTime() async {
@@ -135,16 +135,14 @@ class _HomeScreenState extends State<HomeScreen> {
         onSelectTime: selectTime,
       )
           : const SettingsTab(),
-
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: onBottomNavTap,
         items: [
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.menu),
-            label: 'Task List',
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.menu),
+            label: AppLocalizations.of(context)!.task_list,
           ),
-
           BottomNavigationBarItem(
             icon: Container(
               width: 55,
@@ -165,10 +163,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             label: '',
           ),
-
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.settings),
+            label: AppLocalizations.of(context)!.setting,
           ),
         ],
       ),
@@ -180,10 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.app_title,
-          style: Theme.of(context)
-              .textTheme
-              .headlineLarge
-              ?.copyWith(
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
             color: Colors.white,
           ),
         ),
@@ -193,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
           if (taskProvider.tasks.isEmpty) {
             return Center(
               child: Text(
-                'No tasks yet',
+                AppLocalizations.of(context)!.no_tasks_yet,
                 style: AppStyles.regular20GreyLight,
               ),
             );
@@ -211,7 +205,6 @@ class _HomeScreenState extends State<HomeScreen> {
               return Dismissible(
                 key: ValueKey(task),
                 direction: DismissDirection.startToEnd,
-
                 background: Container(
                   margin: const EdgeInsets.only(bottom: 12),
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -220,16 +213,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   alignment: Alignment.centerLeft,
-                  child: const Row(
+                  child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.delete,
                         color: Colors.white,
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
-                        'Delete',
-                        style: TextStyle(
+                        AppLocalizations.of(context)!.delete,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
@@ -237,15 +230,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-
                 confirmDismiss: (direction) async {
                   return await confirmDelete();
                 },
-
                 onDismissed: (direction) {
                   taskProvider.deleteTask(index);
                 },
-
                 child: Card(
                   margin: const EdgeInsets.only(bottom: 12),
                   child: Padding(
@@ -267,9 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 )
                                     : AppStyles.bold18Black,
                               ),
-
                               const SizedBox(height: 5),
-
                               Row(
                                 children: [
                                   Icon(
@@ -293,9 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-
                         const SizedBox(width: 10),
-
                         ElevatedButton(
                           onPressed: task.isDone
                               ? null
@@ -315,7 +301,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           child: Text(
-                            task.isDone ? 'Done!' : '✓',
+                            task.isDone
+                                ? AppLocalizations.of(context)!.done
+                                : '✓',
                             style: AppStyles.bold14White,
                           ),
                         ),

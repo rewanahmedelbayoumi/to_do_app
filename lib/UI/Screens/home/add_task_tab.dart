@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/Utilities/app_colors.dart';
 import 'package:to_do/Utilities/app_styles.dart';
+import 'package:to_do/l10n/app_localization.dart';
 
 class AddTaskTab extends StatelessWidget {
   final TextEditingController taskController;
@@ -28,7 +29,7 @@ class AddTaskTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Add New Task',
+            AppLocalizations.of(context)!.add_new_task,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
 
@@ -36,9 +37,9 @@ class AddTaskTab extends StatelessWidget {
 
           TextField(
             controller: taskController,
-            decoration: const InputDecoration(
-              hintText: 'Enter your task',
-              prefixIcon: Icon(Icons.task_alt),
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context)!.enter_your_task,
+              prefixIcon: const Icon(Icons.task_alt),
             ),
           ),
 
@@ -65,7 +66,7 @@ class AddTaskTab extends StatelessWidget {
                 children: [
                   Text(
                     selectedTime == null
-                        ? 'Select Time'
+                        ? AppLocalizations.of(context)!.select_time
                         : selectedTime!.format(context),
                     style: selectedTime == null
                         ? AppStyles.regular20GreyLight

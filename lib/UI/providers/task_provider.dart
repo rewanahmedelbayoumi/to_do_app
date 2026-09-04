@@ -38,4 +38,15 @@ class TaskProvider extends ChangeNotifier {
     tasks.removeAt(index);
     notifyListeners();
   }
+
+  void editTask({
+    required int index,
+    required String title,
+    required TimeOfDay time,
+  }) {
+    tasks[index].title = title;
+    tasks[index].time = time;
+
+    notifyListeners();
+  }
 }

@@ -145,6 +145,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Light'**
   String get light;
+
+  /// No description provided for @are_you_sure.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure?'**
+  String get are_you_sure;
+
+  /// No description provided for @delete_task_question.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to delete this task?'**
+  String get delete_task_question;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @task_list.
+  ///
+  /// In en, this message translates to:
+  /// **'Task List'**
+  String get task_list;
+
+  /// No description provided for @no_tasks_yet.
+  ///
+  /// In en, this message translates to:
+  /// **'No tasks yet'**
+  String get no_tasks_yet;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @add_new_task.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Task'**
+  String get add_new_task;
+
+  /// No description provided for @enter_your_task.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your task'**
+  String get enter_your_task;
+
+  /// No description provided for @select_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Time'**
+  String get select_time;
 }
 
 class _AppLocalizationsDelegate

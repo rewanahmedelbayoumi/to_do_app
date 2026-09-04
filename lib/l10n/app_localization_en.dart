@@ -31,4 +31,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get light => 'Light';
+
+  @override
+  String get are_you_sure => 'Are you sure?';
+
+  @override
+  String get delete_task_question => 'Do you want to delete this task?';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get task_list => 'Task List';
+
+  @override
+  String get no_tasks_yet => 'No tasks yet';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get add_new_task => 'Add New Task';
+
+  @override
+  String get enter_your_task => 'Enter your task';
+
+  @override
+  String get select_time => 'Select Time';
 }

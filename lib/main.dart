@@ -22,7 +22,7 @@ void main() {
           create: (context) => TaskProvider(),
         ),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -32,21 +32,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var languageProvider = Provider.of<AppLanguageProvider>(context);
-    var themeProvider = Provider.of<AppThemeProvider>(context);
+    final languageProvider = Provider.of<AppLanguageProvider>(context);
+    final themeProvider = Provider.of<AppThemeProvider>(context);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       initialRoute: AppRoutes.homeRouteName,
+
       routes: {
         AppRoutes.homeRouteName: (context) => const HomeScreen(),
       },
+
       theme: AppTheme.LightTheme,
       darkTheme: AppTheme.DarkTheme,
       themeMode: themeProvider.appTheme,
+
       locale: Locale(languageProvider.appLanguage),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
+
+      localizationsDelegates:
+      AppLocalizations.localizationsDelegates,
+
+      supportedLocales:
+      AppLocalizations.supportedLocales,
     );
   }
 }

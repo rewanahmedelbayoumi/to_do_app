@@ -31,4 +31,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get light => 'نهاري';
+
+  @override
+  String get are_you_sure => 'هل أنت متأكد؟';
+
+  @override
+  String get delete_task_question => 'هل تريد حذف هذه المهمة؟';
+
+  @override
+  String get no => 'لا';
+
+  @override
+  String get yes => 'نعم';
+
+  @override
+  String get task_list => 'قائمة المهام';
+
+  @override
+  String get no_tasks_yet => 'لا توجد مهام بعد';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get done => 'تم';
+
+  @override
+  String get add_new_task => 'إضافة مهمة جديدة';
+
+  @override
+  String get enter_your_task => 'أدخل مهمتك';
+
+  @override
+  String get select_time => 'اختر الوقت';
 }

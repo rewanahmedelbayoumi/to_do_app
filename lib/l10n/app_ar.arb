@@ -6,5 +6,16 @@
   "arabic": "العربية",
   "mode": "الوضع",
   "dark": "ليلي",
-  "light": "نهاري"
+  "light": "نهاري",
+  "are_you_sure": "هل أنت متأكد؟",
+  "delete_task_question": "هل تريد حذف هذه المهمة؟",
+  "no": "لا",
+  "yes": "نعم",
+  "task_list": "قائمة المهام",
+  "no_tasks_yet": "لا توجد مهام بعد",
+  "delete": "حذف",
+  "done": "تم",
+  "add_new_task": "إضافة مهمة جديدة",
+  "enter_your_task": "أدخل مهمتك",
+  "select_time": "اختر الوقت"
 }
