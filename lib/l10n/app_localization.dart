@@ -128,10 +128,10 @@ abstract class AppLocalizations {
   /// **'Arabic'**
   String get arabic;
 
-  /// No description provided for @theme.
+  /// No description provided for @mode.
   ///
   /// In en, this message translates to:
-  /// **'Theme'**
+  /// **'Mode'**
   String get mode;
 
   /// No description provided for @dark.
