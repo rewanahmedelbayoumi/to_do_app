@@ -20,10 +20,13 @@ class SettingsTab extends StatelessWidget {
     var themeProvider = Provider.of<AppThemeProvider>(context);
 
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: width * 0.09,
-        vertical: height * 0.02,
+      padding: EdgeInsets.only(
+        left: width * 0.09,
+        right: width * 0.09,
+        top: height * 0.09,
+        bottom: height * 0.02,
       ),
+
       child: Column(
         spacing: height * 0.02,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +78,7 @@ class SettingsTab extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
 
-          // Theme / Mode
+          // Mode
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: width * 0.04,

@@ -35,25 +35,33 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
               // TODO: change language into English
               languageProvider.changeLanguage("en");
             },
-            child: languageProvider.appLanguage == 'en'?
-                getSelectedLanguageItem(language: AppLocalizations.of(context)!.english):
-                getUnselectedLanguageItem(language: AppLocalizations.of(context)!.english),
+            child: languageProvider.appLanguage == 'en'
+                ? getSelectedLanguageItem(
+              language: AppLocalizations.of(context)!.english,
+            )
+                : getUnselectedLanguageItem(
+              language: AppLocalizations.of(context)!.english,
             ),
+          ),
           InkWell(
             onTap: () {
               // TODO: change language into Arabic
               languageProvider.changeLanguage("ar");
             },
-            child: languageProvider.appLanguage == 'ar'?
-            getSelectedLanguageItem(language: AppLocalizations.of(context)!.arabic):
-            getUnselectedLanguageItem(language: AppLocalizations.of(context)!.arabic),
+            child: languageProvider.appLanguage == 'ar'
+                ? getSelectedLanguageItem(
+              language: AppLocalizations.of(context)!.arabic,
+            )
+                : getUnselectedLanguageItem(
+              language: AppLocalizations.of(context)!.arabic,
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget getSelectedLanguageItem({required String language}){
+  Widget getSelectedLanguageItem({required String language}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -69,18 +77,14 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
       ],
     );
   }
-  Widget getUnselectedLanguageItem({required String language}){
+
+  Widget getUnselectedLanguageItem({required String language}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           language,
           style: AppStyles.bold14Black,
-    ),
-        Icon(
-          Icons.check,
-          size: 25,
-          color: AppColors.primaryLightColor,
         ),
       ],
     );

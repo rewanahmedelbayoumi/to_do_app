@@ -93,11 +93,6 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
           theme,
           style: AppStyles.bold14Black,
         ),
-        Icon(
-          Icons.check,
-          size: 25,
-          color: AppColors.primaryLightColor,
-        ),
       ],
     );
   }
