@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/UI/Screens/settings/language/language_bottom_sheet.dart';
+import 'package:to_do/UI/Screens/settings/theme/theme_bottom_sheet.dart';
 import 'package:to_do/UI/providers/app_language_provider.dart';
+import 'package:to_do/UI/providers/app_theme_provider.dart';
 import 'package:to_do/Utilities/app_colors.dart';
 import 'package:to_do/Utilities/app_styles.dart';
 import 'package:to_do/l10n/app_localization.dart';
@@ -13,7 +15,9 @@ class SettingsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+
     var languageProvider = Provider.of<AppLanguageProvider>(context);
+    var themeProvider = Provider.of<AppThemeProvider>(context);
 
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -29,6 +33,7 @@ class SettingsTab extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
 
+          // Language
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: width * 0.04,
@@ -49,12 +54,12 @@ class SettingsTab extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(languageProvider.appLanguage == 'en'?
-                    AppLocalizations.of(context)!.english:
-                  AppLocalizations.of(context)!.arabic,
+                  Text(
+                    languageProvider.appLanguage == 'en'
+                        ? AppLocalizations.of(context)!.english
+                        : AppLocalizations.of(context)!.arabic,
                     style: AppStyles.regular14Primary,
                   ),
-
                   Icon(
                     Icons.arrow_drop_down_circle_outlined,
                     size: 25,
@@ -70,6 +75,7 @@ class SettingsTab extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
 
+          // Theme / Mode
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: width * 0.04,
@@ -85,16 +91,17 @@ class SettingsTab extends StatelessWidget {
             ),
             child: InkWell(
               onTap: () {
-                // TODO: show theme bottom sheet
+                showThemeBottomSheet(context);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.light,
+                    themeProvider.isDarkMode()
+                        ? AppLocalizations.of(context)!.dark
+                        : AppLocalizations.of(context)!.light,
                     style: AppStyles.regular14Primary,
                   ),
-
                   Icon(
                     Icons.arrow_drop_down_circle_outlined,
                     size: 25,
@@ -112,7 +119,14 @@ class SettingsTab extends StatelessWidget {
   void showLanguageBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      builder: (context) => LanguageBottomSheet(),
+      builder: (context) => const LanguageBottomSheet(),
+    );
+  }
+
+  void showThemeBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => const ThemeBottomSheet(),
     );
   }
 }

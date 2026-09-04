@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:to_do/UI/providers/app_theme_provider.dart';
 import 'Utilities/app_theme.dart';
 import 'l10n/app_localization.dart';
 import 'UI/providers/app_language_provider.dart';
@@ -7,9 +8,19 @@ import 'UI/Screens/home/home_screen.dart';
 import 'Utilities/app_routes.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => AppLanguageProvider(),
-      child: const MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => AppLanguageProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AppThemeProvider(),
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,6 +29,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<AppLanguageProvider>(context);
+    var themeProvider = Provider.of<AppThemeProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.homeRouteName,
@@ -26,8 +39,8 @@ class MyApp extends StatelessWidget {
       },
       theme: AppTheme.LightTheme,
       darkTheme: AppTheme.DarkTheme,
-      themeMode: ThemeMode.light,
-      locale: Locale((languageProvider.appLanguage)),
+      themeMode: themeProvider.appTheme,
+      locale: Locale(languageProvider.appLanguage),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
     );
