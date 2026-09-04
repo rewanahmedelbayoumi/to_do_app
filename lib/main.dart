@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/UI/providers/app_theme_provider.dart';
+import 'package:to_do/UI/providers/task_provider.dart';
 import 'Utilities/app_theme.dart';
 import 'l10n/app_localization.dart';
 import 'UI/providers/app_language_provider.dart';
@@ -16,6 +17,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (context) => AppThemeProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TaskProvider(),
         ),
       ],
       child: MyApp(),
